@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: 'x86'
+        platform: ['x86']
         configuration: ['Debug', 'Release']
     steps:
     - name: Checkout
