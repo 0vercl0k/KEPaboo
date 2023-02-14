@@ -1,0 +1,32 @@
+name: Builds
+
+on: [push, pull_request]
+
+jobs:
+  Windows:
+    name: Windows latest
+    runs-on: windows-latest 
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: 'x86'
+        configuration: ['Debug', 'Release']
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Setup vs prompt
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Build
+      run: msbuild /p:Configuration=${{ matrix.configuration }} /p:Platform=${{ matrix.platform }} src\KEPaboo.sln
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: bin-${{ matrix.platform }}.${{matrix.configuration }}
+        path: |
+          src/**/${{ matrix.configuration }}/KEPaboo.exe
+          src/**/${{ matrix.configuration }}/KEPaboo.pdb
