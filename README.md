@@ -7,7 +7,7 @@
 
 ## Overview
 
-`KEPaboo` is a utility that neuters anti-debugging techniques used by [KEPServerEX](https://www.ptc.com/en/products/kepware/kepserverex) to prevent people from debugging their code. It is not a security issue, and It has been tested against on the version `6.12.361.0` (February 2023) on Windows 10 64-bit.
+`KEPaboo` is a utility that neuters anti-debugging techniques used by [KEPServerEX](https://www.ptc.com/en/products/kepware/kepserverex) to prevent people from debugging their code. It is not a security issue, and it has been tested against on the version `6.12.361.0` (February 2023) on Windows 10 64-bit.
 
 ## Usage
 Download `KEPaboo` binaries from the Releases section and run it as an **Administrator** to register it as `KEPServerEX`'s `Debugger` via [Image File Execution Options](https://www.malwarebytes.com/blog/news/2015/12/an-introduction-to-image-file-execution-options). By doing so, KEPaboo can start automatically when KEPServerEx is launched.
